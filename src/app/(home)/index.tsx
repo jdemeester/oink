@@ -33,6 +33,16 @@ type HomeCardProps = {
 
 const cards: HomeCardProps[] = [
   {
+    title: 'Rebase CRM',
+    imageLight:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-components-light.png',
+    imageDark:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-components-dark.png',
+    count: 1,
+    footer: 'Real estate CRM demo',
+    path: '../(rebase)',
+  },
+  {
     title: 'Components',
     imageLight:
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-components-light.png',
