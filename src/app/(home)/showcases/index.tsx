@@ -13,6 +13,10 @@ const data = [
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/super-app-paywall-light.png',
     imageDark:
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/super-app-paywall-dark.png',
+    imageBackLight:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/raycast-showcase-light.png',
+    imageBackDark:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/raycast-showcase-dark.png',
     title: 'Super App Paywall',
     description:
       'Modern subscription paywall, featuring animated bottom sheet, tab navigation, and flexible plan options.',
@@ -30,6 +34,10 @@ const data = [
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/raycast-showcase-light.png',
     imageDark:
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/raycast-showcase-dark.png',
+    imageBackLight:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/cooking-onboarding-light-1.png',
+    imageBackDark:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/cooking-onboarding-dark-1.png',
     title: 'Raycast Model Select',
     description:
       'AI model selector with animated blur backdrop, progressive blurs, and smooth spring transitions inspired by Raycast.',

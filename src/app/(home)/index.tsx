@@ -33,6 +33,26 @@ type HomeCardProps = {
 
 const cards: HomeCardProps[] = [
   {
+    title: 'Stream',
+    imageLight:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-showcases-light.png',
+    imageDark:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-showcases-dark-1.png',
+    count: 1,
+    footer: 'Chat with your life. Act on the cards.',
+    path: '../(stream)',
+  },
+  {
+    title: 'Pokefolio',
+    imageLight:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-themes-light.png',
+    imageDark:
+      'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-themes-dark.png',
+    count: 1,
+    footer: 'Your Pokemon card collection',
+    path: '../(pokefolio)',
+  },
+  {
     title: 'Rebase CRM',
     imageLight:
       'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/heroui-native-example/home-components-light.png',

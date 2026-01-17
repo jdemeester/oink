@@ -11,6 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useAppTheme } from '../../contexts/app-theme-context';
 import { AppText } from '../app-text';
+import { FlipCard } from './flip-card';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -23,6 +24,8 @@ type ShowcaseComponent = {
 export type ShowcaseItemData = {
   imageLight: string;
   imageDark: string;
+  imageBackLight?: string;
+  imageBackDark?: string;
   title: string;
   description: string;
   href: string;
@@ -131,20 +134,48 @@ export function ShowcaseItem({
             {item.title}
           </AppText>
         </Pressable>
-        <AnimatedPressable onPress={() => router.push(item.href)}>
-          <Surface
-            className={cn(
-              'w-[62%] aspect-[1/2] items-center justify-center rounded-3xl p-0 border border-neutral-100 shadow-2xl shadow-black/5',
-              isDark && 'shadow-none border-neutral-900'
-            )}
-          >
-            <ExpoImage
-              source={{ uri: isDark ? item.imageDark : item.imageLight }}
-              style={StyleSheet.absoluteFill}
-              transition={200}
-            />
-          </Surface>
-        </AnimatedPressable>
+        <View style={{ width: '62%', aspectRatio: 1 / 2 }}>
+          <FlipCard
+            width="100%"
+            height="100%"
+            frontContent={
+              <View style={StyleSheet.absoluteFill}>
+                <Surface
+                  className={cn(
+                    'w-full h-full items-center justify-center rounded-3xl p-0 border border-neutral-100 shadow-2xl shadow-black/5',
+                    isDark && 'shadow-none border-neutral-900'
+                  )}
+                >
+                  <ExpoImage
+                    source={{ uri: isDark ? item.imageDark : item.imageLight }}
+                    style={StyleSheet.absoluteFill}
+                    transition={200}
+                  />
+                </Surface>
+              </View>
+            }
+            backContent={
+              <View style={StyleSheet.absoluteFill}>
+                <Surface
+                  className={cn(
+                    'w-full h-full items-center justify-center rounded-3xl p-0 border border-neutral-100 shadow-2xl shadow-black/5',
+                    isDark && 'shadow-none border-neutral-900'
+                  )}
+                >
+                  <ExpoImage
+                    source={{
+                      uri: isDark
+                        ? item.imageBackDark || item.imageDark
+                        : item.imageBackLight || item.imageLight,
+                    }}
+                    style={StyleSheet.absoluteFill}
+                    transition={200}
+                  />
+                </Surface>
+              </View>
+            }
+          />
+        </View>
         <View className="pt-8 gap-5 w-[82%]">
           <View className="flex-row flex-wrap justify-center gap-2">
             {item.components.map((component, componentIndex) => (

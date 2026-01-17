@@ -1,8 +1,12 @@
+import { useCallback } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import Animated, {
   useAnimatedRef,
   useScrollOffset,
+  useAnimatedReaction,
+  runOnJS,
 } from 'react-native-reanimated';
+import * as Haptics from 'expo-haptics';
 import {
   ShowcaseItem,
   type ShowcaseItemData,
@@ -18,6 +22,23 @@ export function Carousel({ data }: Props) {
 
   const animatedRef = useAnimatedRef<Animated.FlatList>();
   const scrollY = useScrollOffset(animatedRef);
+
+  const triggerHaptic = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  }, []);
+
+  // Trigger haptic when crossing page boundaries
+  useAnimatedReaction(
+    () => {
+      return Math.round(scrollY.value / height);
+    },
+    (currentIndex, previousIndex) => {
+      if (currentIndex !== previousIndex && previousIndex !== null && currentIndex >= 0 && currentIndex < data.length) {
+        runOnJS(triggerHaptic)();
+      }
+    },
+    [height, data.length]
+  );
 
   return (
     <>
